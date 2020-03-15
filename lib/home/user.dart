@@ -9,7 +9,7 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: MediaQuery.removePadding(
+      child: Container(color: Colors.teal, child: MediaQuery.removePadding(
         context: context,
         //移除抽屉菜单顶部默认留白
         removeTop: true,
@@ -25,7 +25,7 @@ class UserInfo extends StatelessWidget {
                     child: ClipOval(
                       child: Image.asset(
                         "assets/01.jpg",
-                        width: 80,
+                        width: 60,
                       ),
                     ),
                   ),
@@ -52,7 +52,7 @@ class UserInfo extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 }
