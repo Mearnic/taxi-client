@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   TabController _tabController; //需要定义一个Controller
-  List tabs = ["新闻", "历史", "图片"];
+  List tabs = ["新闻", "历史"];
 
   @override
   void initState() {
@@ -29,10 +29,10 @@ class _HomePageState extends State<HomePage>
       appBar: AppBar(
         //导航栏
         title: Text("常德的士"),
-        bottom: TabBar(
-            //生成Tab菜单
-            controller: _tabController,
-            tabs: tabs.map((e) => Tab(text: e)).toList()),
+//        bottom: TabBar(
+//            //生成Tab菜单
+//            controller: _tabController,
+//            tabs: tabs.map((e) => Tab(text: e)).toList()),
         leading: Builder(builder: (context) {
           return IconButton(
             icon: Icon(Icons.people, color: Colors.white), //自定义图标
@@ -63,13 +63,14 @@ class _HomePageState extends State<HomePage>
             IconButton(
               icon: Icon(Icons.local_taxi,),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Tabs(tabIndex: "e",);
-                }));
+                _onItemTapped(0);
               },
             ),
             SizedBox(), //中间位置空出
-            IconButton(icon: Icon(Icons.home)),
+            IconButton(icon: Icon(Icons.home),
+              onPressed: () {
+                _onItemTapped(1);
+              },),
           ],
           mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
         ),
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage>
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _tabController.index = index;
     });
   }
 
