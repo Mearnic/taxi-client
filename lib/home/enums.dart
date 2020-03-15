@@ -1,0 +1,1 @@
+enum TabType { TAXI, HOME }

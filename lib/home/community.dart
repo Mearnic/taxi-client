@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:taxi/tabs.dart';
-import 'drawer.dart';
 
-class Driver extends StatefulWidget {
+class Community extends StatefulWidget {
   @override
-  _DriverState createState() => _DriverState();
+  _CommunityState createState() => _CommunityState();
 }
 
-class _DriverState extends State<Driver>
+class _CommunityState extends State<Community>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   @override

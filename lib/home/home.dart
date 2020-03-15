@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:taxi/tabs.dart';
-import 'drawer.dart';
+import 'package:taxi/home/enums.dart';
+import 'package:taxi/home/tabs.dart';
+import 'user.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
+
+
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   TabController _tabController; //需要定义一个Controller
-  List tabs = ["新闻", "历史"];
+  List tabs = [TabType.TAXI, TabType.HOME];
 
   @override
   void initState() {
     _tabController = TabController(length: tabs.length, vsync: this);
     _tabController.addListener(() {
       switch (_tabController.index) {
+
       }
     });
     super.initState();
@@ -28,7 +32,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       appBar: AppBar(
         //导航栏
-        title: Text("常德的士"),
+        title: Text("----"),
 //        bottom: TabBar(
 //            //生成Tab菜单
 //            controller: _tabController,
@@ -51,8 +55,8 @@ class _HomePageState extends State<HomePage>
       //抽屉
       body: TabBarView(
         controller: _tabController,
-        children: tabs.map((e) { //创建3个Tab页
-          return new Tabs(tabIndex: e,);
+        children: tabs.map((type) { //创建3个Tab页
+          return new Tabs(tabType: type,);
         }).toList(),
       ),
       bottomNavigationBar: BottomAppBar(
