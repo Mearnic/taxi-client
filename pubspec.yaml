@@ -25,6 +25,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   english_words: any
   flutter_local_notifications: ^0.9.1
+  flutter_map: any # or the latest version on Pub
+  latlong: any # or the latest version on Pub
+  cached_network_image: ^2.0.0-rc
+  location: ^2.5.0
+  provider: ^2.0.1+1
 
 dev_dependencies:
   flutter_test:
